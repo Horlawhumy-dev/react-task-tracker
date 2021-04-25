@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import Tasks from './components/Tasks'
-
+import TaskForm from './components/TaskForm'
 
 
 function App() {
+  
   const [tasks, setTasks] = useState([
     {
     id: 1,
@@ -36,11 +37,50 @@ function App() {
     day: 'April 30th at 5:00am',
     reminder: false
     }
-])
+  ])
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target.value)
+    // setTasks([
+    //   {
+    //     id: tasks.length === 0 ? 1 : tasks.id++,
+    //     text: 
+    //   }
+    // ])
+  };
+
+  const handleDeleteTask = (id) => {
+     setTasks(tasks.filter((task) => task.id !== id))
+  }
+
+  const handleEditTask = (id) => {
+      console.log('Task deleted....', id)
+  }
+  
+  const onToggleTask = (id) => {
+    setTasks(
+      tasks.map((task) => 
+        task.id === id ? {...task, reminder:!task.reminder} : task
+      )
+    )
+  }
+
   return (
     <div className="container">
+
       <Header />
-      <Tasks tasks={tasks}/>
+
+      <TaskForm  onSubmit={handleFormSubmit} 
+        text="text" 
+        placeholder1="Type your task here..."  
+        placeholder2="Date of task here..."
+       />
+
+        <div className="headline" >Recent Tasks</div>
+
+        {tasks.length > 0 ? 
+          <Tasks tasks={tasks} onDelete={handleDeleteTask} onEdit={handleEditTask} onToggle={onToggleTask} /> : 
+          <h2 className="div5">No Tasks to show</h2>}
     </div>
   );
 }

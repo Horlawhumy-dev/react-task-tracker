@@ -23,6 +23,12 @@ code {
 .fa-times{
   color: black;
   font-size: 1.5em;
+  margin-left: 1em;
+}
+
+.fa-edit{
+  color: crimson;
+  font-size: 1.5em;
 }
 
 .container{
@@ -41,18 +47,29 @@ code {
 }
 
 .header .div1{
+   width: 90%;
   text-align: center;
 
 }
 
-.header .div2{
-  text-align: center;
+form .inputVal{
+  background-color: rgba(211, 211, 211, 0.432);
+  color: black;
+  display: block;
+  padding: 1em;
+  width: 90%;
+  border: none;
+  outline: none;
+  margin-top: 1em;
+  font-size: larger;
 }
 
-.task .div3{
+.icon{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  color: crimson;
 }
+
 
 .task .div3 .icon{
   text-align: center;
@@ -65,7 +82,7 @@ code {
   color: crimson;
 }
 
-.div2 .btn{
+.btn{
   background-color: crimson;
   padding: 1em 1.5em;
   border: none;
@@ -74,6 +91,7 @@ code {
   color: white;
   outline: none;
   cursor: pointer;
+  margin-top: 1em;
 }
 
 .div2 .btn:focus{
@@ -89,9 +107,14 @@ code {
   padding: .5em;
   margin-bottom: 5px;
   margin-top: 1em;
+ 
   /* display: flex;
   justify-content: space-between; */
   width: 95%;
+}
+
+.task.reminder{
+  border-left: 3px solid crimson;
 }
 
 .task h3{
@@ -101,6 +124,40 @@ code {
 .task p{
   color: black;
   margin-top: 0;
+}
+
+.headline{
+  margin-top: 1em;
+  text-decoration: underline;
+  text-align: center;
+  font-size: 2em;
+  color: crimson;
+}
+
+.div5{
+  margin-top: 1em;
+  color: black;
+  
+}
+
+.div6{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1em;
+}
+
+.div6 input{
+  cursor: pointer;
+  margin-top: 7px;
+}
+
+.div6 input:checked{
+  background-color: crimson;
+}
+
+.div6 span{
+  color: crimson;
+  font-size: larger;
 }
 
 
