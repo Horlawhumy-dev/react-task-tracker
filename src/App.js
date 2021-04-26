@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import Header from './components/Header';
+import { useState } from 'react'
+import Header from './components/Header'
 import Tasks from './components/Tasks'
 import TaskForm from './components/TaskForm'
+import WithClass from './components/hoc/WithClass'
 
 
 function App() {
@@ -66,22 +67,20 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <WithClass classes="container">
+        <Header />
 
-      <Header />
+        <TaskForm  onSubmit={handleFormSubmit} 
+          text="text" 
+          placeholder1="Type your task here..."  
+          placeholder2="Date of task here..."/>
 
-      <TaskForm  onSubmit={handleFormSubmit} 
-        text="text" 
-        placeholder1="Type your task here..."  
-        placeholder2="Date of task here..."
-       />
+          <div className="headline" >Recent Tasks</div>
 
-        <div className="headline" >Recent Tasks</div>
-
-        {tasks.length > 0 ? 
-          <Tasks tasks={tasks} onDelete={handleDeleteTask} onEdit={handleEditTask} onToggle={onToggleTask} /> : 
-          <h2 className="div5">No Tasks to show</h2>}
-    </div>
+          {tasks.length > 0 ? 
+            <Tasks tasks={tasks} onDelete={handleDeleteTask} onEdit={handleEditTask} onToggle={onToggleTask} /> : 
+            <h2 className="div5">No Tasks to show</h2>}
+    </WithClass>
   );
 }
 
