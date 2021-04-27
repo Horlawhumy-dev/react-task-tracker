@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import TaskForm from './components/TaskForm'
-import WithClass from './components/hoc/WithClass'
+import WithClass from './hoc/WithClass'
 
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
   ])
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.value)
+    
     // setTasks([
     //   {
     //     id: tasks.length === 0 ? 1 : tasks.id++,
@@ -69,7 +69,6 @@ function App() {
   return (
     <WithClass classes="container">
         <Header />
-
         <TaskForm  onSubmit={handleFormSubmit} 
           text="text" 
           placeholder1="Type your task here..."  
