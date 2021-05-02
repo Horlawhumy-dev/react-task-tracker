@@ -6,7 +6,7 @@ import WithClass from './hoc/WithClass'
 
 
 function App() {
-  
+  const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([
     {
     id: 1,
@@ -39,15 +39,11 @@ function App() {
     reminder: false
     }
   ])
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    
-    // setTasks([
-    //   {
-    //     id: tasks.length === 0 ? 1 : tasks.id++,
-    //     text: 
-    //   }
-    // ])
+  const FormSubmitHandler = (task) => {
+   const id = Math.floor(Math.random() * 1000 + 1);
+   const newTask = { id, ...task};
+   setTasks([...tasks, newTask])
+   console.log(tasks)
   };
 
   const handleDeleteTask = (id) => {
@@ -65,15 +61,11 @@ function App() {
       )
     )
   }
-
+  // let myClasses = [];
   return (
     <WithClass classes="container">
-        <Header />
-        <TaskForm  onSubmit={handleFormSubmit} 
-          text="text" 
-          placeholder1="Type your task here..."  
-          placeholder2="Date of task here..."/>
-
+          <Header styles="btn-add" onAdd={() => setShowAddTask(!showAddTask)}  showAdd={showAddTask}/>
+          {showAddTask ? <TaskForm  AddTaskForm={FormSubmitHandler} /> :<h3 style={{ display:'block', fontSize:'1rem', color:'green'}}>Toggle the add button above.</h3>}
           <div className="headline" >Recent Tasks</div>
 
           {tasks.length > 0 ? 
