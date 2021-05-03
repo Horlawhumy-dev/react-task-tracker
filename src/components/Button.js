@@ -8,7 +8,6 @@ const Button = (props) => {
         style={{ backgroundColor: props.bgColor}}
         className={props.styles} 
         onClick={props.onClick}>
-            <i className={props.classes} aria-hidden="true"></i>
              {props.children}
         </button>
     )

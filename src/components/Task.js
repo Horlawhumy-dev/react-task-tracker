@@ -6,11 +6,11 @@ const Task = (props) => {
                 <h3>{props.task.text} </h3>
                 <p>{props.task.day}</p>
                 <div className='icon'>
-                    <Button type="" styles="btn-icon" onClick={() => props.onEdit(props.task.id)}>
-                        <i classes="fa fa-edit" aria-hidden="true" ></i>
+                    <Button  styles="btn-icon" onClick={() => props.onEdit(props.task.id)}>
+                        <i className="fa fa-edit" aria-hidden="true" ></i>
                     </Button>
-                    <Button type="" styles="btn-icon" onClick={() => props.onDelete(props.task.id)}>
-                        <i classes="fa fa-times" aria-hidden="true" ></i>
+                    <Button  styles="btn-icon" onClick={() => props.onDelete(props.task.id)}>
+                        <i className="fa fa-times" aria-hidden="true" ></i>
                     </Button>
                     
                 </div>
