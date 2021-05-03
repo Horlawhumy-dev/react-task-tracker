@@ -9,11 +9,7 @@ const TaskForm = ({ AddTaskForm, values }) => {
     const [reminder, setReminder] = useState(false)
     const [edit, setEdit] = useState(false)
     
-    if(values.edit === true){
-        setText(values.text)
-        setDay(values.day)
-        setReminder(values.reminder)
-    }
+   
 
     // console.log(text,day,reminder)
     const onSubmit = (e) => {
@@ -23,13 +19,22 @@ const TaskForm = ({ AddTaskForm, values }) => {
             alert('Fill in all inputs')
             return
         }
-        // This is calling the form submit method in app.js by setting the task passed in to be object of this
-        AddTaskForm({text, day, reminder, edit})
-        // Clearing the form inputs after submission
-        setText('')
-        setDay('')
-        setReminder(false)
-        setEdit(false)
+
+        if(values.edit === true){
+            setText(values.text)
+            setDay(values.day)
+            setReminder(values.reminder)
+            AddTaskForm({text, day, reminder, edit})
+        }else{
+            // This is calling the form submit method in app.js by setting the task passed in to be object of this
+            AddTaskForm({text, day, reminder, edit})
+            // Clearing the form inputs after submission
+            setText('')
+            setDay('')
+            setReminder(false)
+            setEdit(false)
+        }
+      
     }
     return (
        <form onSubmit={onSubmit}>
