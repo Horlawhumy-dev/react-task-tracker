@@ -57,7 +57,8 @@ const TaskForm = ({ AddTaskForm, values }) => {
                     checked={reminder}
                     onChange={(e) => setReminder(e.currentTarget.checked)}
                     value={reminder}/> 
-                <span>Remainder</span>          
+                    {' '}
+                    <span>Remainder</span>          
             </div>
             <Button type="submit" styles="btn"> 
                 <i className="fa fa-plus" aria-hidden="true" ></i>

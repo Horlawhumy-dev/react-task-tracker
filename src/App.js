@@ -109,7 +109,8 @@ function App() {
   return (
     <WithClass classes="container">
           <Header styles="btn-add" onAdd={() => setShowAddTask(!showAddTask)}  showAdd={showAddTask}/>
-          {showAddTask ? <TaskForm  values={tasks.map(task => task)} AddTaskForm={FormSubmitHandler} /> :<h3 style={{ display:'block', fontSize:'1rem', color:'green'}}>Toggle the add button above.</h3>}
+          {showAddTask ? <TaskForm  values={tasks.map(task => task)} AddTaskForm={FormSubmitHandler} /> :
+            <h3 style={{ display:'block', fontSize:'1rem', color:'green'}}>Toggle the add button above.</h3>}
           <div className="headline" >Recent Tasks</div>
         
           {tasks.length > 0 ? 
